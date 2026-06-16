@@ -122,7 +122,7 @@ const parseStoredUser = () => {
 export const useShop = () => useContext(ShopContext);
 
 export const ShopProvider = ({ children }) => {
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://technoshop-backend-m2ps.onrender.com/api";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://technoshop-backend-m2ps.onrender.com";
   const [products, setProducts] = useState([]);
   const [productsLoading, setProductsLoading] = useState(true);
   const [productsError, setProductsError] = useState("");

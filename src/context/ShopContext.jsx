@@ -122,7 +122,7 @@ const parseStoredUser = () => {
 export const useShop = () => useContext(ShopContext);
 
 export const ShopProvider = ({ children }) => {
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://techno-shop-front-end.vercel.app/api";
   const [products, setProducts] = useState([]);
   const [productsLoading, setProductsLoading] = useState(true);
   const [productsError, setProductsError] = useState("");

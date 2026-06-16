@@ -17,7 +17,7 @@ const loadRazorpayScript = () => new Promise((resolve) => {
 
 export default function Checkout() {
   const { cart, cartTotal, user, clearCart, products } = useShop();
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://techno-shop-front-end.vercel.app/api";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://technoshop-backend-m2ps.onrender.com";
   const [selectedAddressIndex, setSelectedAddressIndex] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState("Razorpay");
   const [isProcessing, setIsProcessing] = useState(false);

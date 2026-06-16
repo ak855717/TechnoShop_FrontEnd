@@ -88,10 +88,10 @@ const parseStoredItems = (key) => {
     const stored = JSON.parse(localStorage.getItem(key) || "[]");
     return Array.isArray(stored)
       ? stored.map((item) => ({
-          ...normalizeProduct(item),
-          selectedColor: item.selectedColor || item.color?.[0] || "Default",
-          quantity: Math.max(1, Number(item.quantity || 1)),
-        }))
+        ...normalizeProduct(item),
+        selectedColor: item.selectedColor || item.color?.[0] || "Default",
+        quantity: Math.max(1, Number(item.quantity || 1)),
+      }))
       : [];
   } catch {
     return [];
@@ -122,7 +122,7 @@ const parseStoredUser = () => {
 export const useShop = () => useContext(ShopContext);
 
 export const ShopProvider = ({ children }) => {
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://technoshop-backend-m2ps.onrender.com";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://technoshop-backend-m2ps.onrender.com/api";
   const [products, setProducts] = useState([]);
   const [productsLoading, setProductsLoading] = useState(true);
   const [productsError, setProductsError] = useState("");
@@ -228,7 +228,7 @@ export const ShopProvider = ({ children }) => {
       if (existingProduct) {
         return prevCart.map((item) =>
           idsMatch(getItemId(item), productId) &&
-          item.selectedColor === normalizedProduct.selectedColor
+            item.selectedColor === normalizedProduct.selectedColor
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );

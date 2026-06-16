@@ -17,7 +17,7 @@ const loadRazorpayScript = () => new Promise((resolve) => {
 
 export default function Checkout() {
   const { cart, cartTotal, user, clearCart, products } = useShop();
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://technoshop-backend-m2ps.onrender.com";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://technoshop-backend-m2ps.onrender.com/api";
   const [selectedAddressIndex, setSelectedAddressIndex] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState("Razorpay");
   const [isProcessing, setIsProcessing] = useState(false);
@@ -59,10 +59,10 @@ export default function Checkout() {
           /^[a-f\d]{24}$/i.test(String(directId))
             ? null
             : products.find(
-                (product) =>
-                  String(product.name || "").trim().toLowerCase() === String(item.name || "").trim().toLowerCase() &&
-                  (!item.brand || String(product.brand || "").trim().toLowerCase() === String(item.brand || "").trim().toLowerCase())
-              );
+              (product) =>
+                String(product.name || "").trim().toLowerCase() === String(item.name || "").trim().toLowerCase() &&
+                (!item.brand || String(product.brand || "").trim().toLowerCase() === String(item.brand || "").trim().toLowerCase())
+            );
 
         return {
           product: String(matchedProduct?._id || matchedProduct?.id || directId || ""),

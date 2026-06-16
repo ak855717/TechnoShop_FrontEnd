@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ShopProvider } from "./context/ShopContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -32,7 +32,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ShopProvider>
         <ScrollToTop />
         <Navbar />
@@ -54,6 +54,6 @@ export default function App() {
         </Routes>
         <Footer />
       </ShopProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

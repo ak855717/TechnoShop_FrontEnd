@@ -8,12 +8,7 @@ export default defineConfig({
     host: 'localhost',
     port: 5173,
     strictPort: true,
-    proxy: {
-      '/api': {
-        target: 'https://technoshop-backend-m2ps.onrender.com',
-        changeOrigin: true,
-      }
-    }
+
   },
   preview: {
     host: 'localhost',

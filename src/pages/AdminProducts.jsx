@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useShop } from "../context/ShopContext";
 
 export default function AdminProducts() {
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://technoshop-backend-m2ps.onrender.com";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://technoshop-backend-m2ps.onrender.com/api";
   const { user } = useShop();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -159,7 +159,7 @@ export default function AdminProducts() {
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="pt-20 min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -475,7 +475,7 @@ export default function AdminProducts() {
                 <div key={product._id} className="p-6 hover:bg-gray-50 transition-colors">
                   <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                     {/* Product Image */}
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                       <img
                         src={product.image}
                         alt={product.name}
@@ -487,7 +487,7 @@ export default function AdminProducts() {
                     </div>
 
                     {/* Product Details */}
-                    <div className="flex-grow min-w-0">
+                    <div className="grow min-w-0">
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                         <div>
                           <h3 className="text-lg font-semibold text-gray-900 truncate">{product.name}</h3>
@@ -528,7 +528,7 @@ export default function AdminProducts() {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex gap-2 flex-shrink-0">
+                    <div className="flex gap-2 shrink-0">
                       <button
                         onClick={() => handleEdit(product)}
                         className="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors flex items-center gap-2 text-sm font-medium"
